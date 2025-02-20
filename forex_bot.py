@@ -1,3 +1,4 @@
+import os
 import telebot
 import time
 import threading
@@ -7,16 +8,12 @@ import ta  # Библиотека для индикаторов
 import pandas as pd
 import requests
 
-# Токен Telegram-бота
-TELEGRAM_BOT_TOKEN = "7734582047:AAGCrz_-YsvFJQlHVyRIcmuDEe7NZzZBwrY"
-TELEGRAM_CHAT_ID = "7696010449"
-
-# API URL для получения реальных данных с Pocket Option
-POCKET_OPTION_API_URL = "https://api.pocketoption.com/v1/quotes"
-
-# Токен сессии Pocket Option (из DevTools)
-SESSION_TOKEN = "4b745db5acaa3d862516016aea1eed49"
-CI_SESSION = "ТОВОЙ_CI_SESSION"  # Замени на значение из cookie
+# Получаем переменные из Railway
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+POCKET_OPTION_API_URL = os.getenv("POCKET_OPTION_API_URL")
+SESSION_TOKEN = os.getenv("SESSION_TOKEN")
+CI_SESSION = os.getenv("CI_SESSION")
 
 # Заголовки для запроса
 HEADERS = {
